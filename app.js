@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const stringify = require("json-stable-stringify");
 const crypto = require("crypto-js");
 
+const PORT = process.env.PORT || 8001;
+
 const app = express();
 app.use(bodyParser.json());
 
@@ -28,4 +30,4 @@ app.get("/", (req, res) => {
     });
 });
 
-app.listen(8001, () => console.log("App is listening on port 8001."));
+app.listen(PORT, () => console.log(`App is listening on port ${PORT}.`));
