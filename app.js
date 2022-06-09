@@ -20,7 +20,6 @@ app.post("/", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    console.log("the request body is ", req.body);
     const hash = crypto
         .SHA256(stringify(req.body))
         .toString(crypto.HEX)
