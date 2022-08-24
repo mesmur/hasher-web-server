@@ -10,12 +10,11 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
-    const hash = crypto
-        .SHA256(stringify(req.body))
-        .toString(crypto.HEX)
-        .toLowerCase();
+    const stringified = stringify(req.body);
+    const hash = crypto.SHA256(stringified).toString(crypto.HEX).toLowerCase();
     res.status(200).json({
         hash,
+        stringified,
     });
 });
 
